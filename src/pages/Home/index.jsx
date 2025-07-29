@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import api from "../../services/api";
+import { Button } from "../../components/Button/styles";
 
 import {
   Title,
@@ -8,7 +9,6 @@ import {
   TopBackground,
   Input,
   Form,
-  Button,
   InputLabel,
 } from "./styles";
 
