@@ -6,13 +6,11 @@ import {
   Title,
   Container,
   ContainerInputs,
-  TopBackground,
   Input,
   Form,
   InputLabel,
 } from "./styles";
-
-import UsersImage from "../../assets/users.png";
+import TopBackgroud from "../../components/TopBackground";
 
 function Home() {
   const inputName = useRef();
@@ -31,10 +29,7 @@ function Home() {
 
   return (
     <Container>
-      <TopBackground>
-        <img src={UsersImage} alt="imagem usuários" />
-      </TopBackground>
-
+      <TopBackgroud />
       <Form>
         <Title>Cadastrar Usuário</Title>
 

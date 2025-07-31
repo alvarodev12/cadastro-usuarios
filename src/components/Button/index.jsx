@@ -1,9 +1,7 @@
 import { Button } from "./styles";
 
-function DefaultButton() {
-  return (
-    <Button>EIU AQUI</Button>;
-  )
+function DefaultButton({ children, ...props }) {
+  return <Button {...props}>{children}</Button>;
 }
 
-export default DefaultButton
+export default DefaultButton;
