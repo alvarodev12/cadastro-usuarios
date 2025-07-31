@@ -12,9 +12,12 @@ import {
   Title,
   TrashIcon,
 } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 function ListUsers() {
-  // const [users] = useState([]);
+  // const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
+
   let users = [
     {
       age: 39,
@@ -50,6 +53,13 @@ function ListUsers() {
     getUsers();
   }, []);
 
+  async function deleteUsers(id) {
+    await api.delete(`/usuarios/${id}`);
+
+    const upadateUsers = users.filter((user) => user.id !== id);
+    setUsers(upadateUsers);
+  }
+
   return (
     <Container>
       <TopBackgroud />
@@ -66,12 +76,18 @@ function ListUsers() {
               <p>{user.age}</p>
               <p>{user.email}</p>
             </div>
-            <TrashIcon src={Trash} alt="icone-lixo" />
+            <TrashIcon
+              src={Trash}
+              alt="icone-lixo"
+              onClick={() => deleteUsers(user.id)}
+            />
           </CardUsers>
         ))}
       </ContainerUsers>
 
-      <Button type="button">Voltar</Button>
+      <Button type="button" onClick={() => navigate("/")}>
+        Voltar
+      </Button>
     </Container>
   );
 }
